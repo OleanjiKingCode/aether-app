@@ -27,6 +27,10 @@ import {
   injectedWallet,
   braveWallet,
   phantomWallet,
+  coinbaseWallet,
+  trustWallet,
+  rainbowWallet,
+  ledgerWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { IS_TEST_MODE } from "@/config/constant/environment";
 import { ChainType, EVM, createConfig, getChains } from "@lifi/sdk";
@@ -38,14 +42,18 @@ export const config = getDefaultConfig({
   projectId: "c58ac3f141e930783d46400601b12b3a",
   wallets: [
     {
-      groupName: "Recommended",
+      groupName: "Popular",
       wallets: [
-        injectedWallet,
         metaMaskWallet,
         walletConnectWallet,
-        braveWallet,
-        phantomWallet,
+        coinbaseWallet,
+        trustWallet,
+        rainbowWallet,
       ],
+    },
+    {
+      groupName: "More",
+      wallets: [injectedWallet, braveWallet, phantomWallet, ledgerWallet],
     },
   ],
   chains: [

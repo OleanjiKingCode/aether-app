@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { WagmiProvider } from "wagmi";
-import { RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { Inter_Tight } from "next/font/google";
 // import { config } from "@/wagmi";
 import { ThemeProvider } from "next-themes";
@@ -14,12 +14,15 @@ import Header from "@/components/header";
 import Navbar from "@/components/navbar";
 import { Geist_Mono, Instrument_Serif } from "next/font/google";
 import AlertModal from "@/components/common/modals/alert-modal";
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { solanaWallets, solanaRpcEndpoint } from '@/solana';
-import { WalletContextProvider } from '@/context/WalletContext';
-import { BirdEyeProvider } from '@/context/BirdEyeContext';
-import { useMemo } from 'react';
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { solanaWallets, solanaRpcEndpoint } from "@/solana";
+import { WalletContextProvider } from "@/context/WalletContext";
+import { BirdEyeProvider } from "@/context/BirdEyeContext";
+import { useMemo } from "react";
 import { CustomWagmiProvider } from "@/wagmi";
 
 const interTight = Inter_Tight({
@@ -50,19 +53,21 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ConnectionProvider endpoint={solanaRpcEndpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
-            <CustomWagmiProvider >
+            <CustomWagmiProvider>
               <QueryClientProvider client={client}>
                 <RainbowKitProvider
                   modalSize="compact"
-                  theme={lightTheme({
-                    fontStack: "system",
-                    ...lightTheme.accentColors.green,
+                  theme={darkTheme({
+                    accentColor: "#bb3eff",
                     accentColorForeground: "white",
+                    borderRadius: "medium",
+                    fontStack: "system",
                   })}
                   appInfo={{
                     appName: "Aether",
                     learnMoreUrl: "https://learnaboutcryptowallets.example",
                   }}
+                  showRecentTransactions={true}
                 >
                   <WalletContextProvider>
                     <BirdEyeProvider>
