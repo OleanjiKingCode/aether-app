@@ -1,7 +1,5 @@
 const PortfolioActionDropdown = () => {
-    return (
-        
-    )
-}
+  return <div>Portfolio Action Dropdown</div>;
+};
 
-export default PortfolioActionDropdown
+export default PortfolioActionDropdown;

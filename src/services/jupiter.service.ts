@@ -1,13 +1,13 @@
 /**
  * Jupiter API Service - Solana DEX Aggregator
  * Documentation: https://station.jup.ag/docs/apis/swap-api
- * 
+ *
  * Endpoints:
  * - Quote: https://lite-api.jup.ag/swap/v1/quote
  * - Swap: https://lite-api.jup.ag/swap/v1/swap
  */
 
-const JUPITER_API_URL = 'https://lite-api.jup.ag';
+const JUPITER_API_URL = "https://lite-api.jup.ag";
 
 export interface JupiterQuote {
   inputMint: string;
@@ -18,7 +18,7 @@ export interface JupiterQuote {
   swapMode: string;
   slippageBps: number;
   priceImpactPct: number;
-  routePlan: any[];
+  routePlan: Record<string, unknown>[];
 }
 
 export interface JupiterSwapResult {
@@ -56,19 +56,21 @@ class JupiterService {
         slippageBps: slippageBps.toString(),
       });
 
-      const response = await fetch(`${JUPITER_API_URL}/swap/v1/quote?${params.toString()}`);
+      const response = await fetch(
+        `${JUPITER_API_URL}/swap/v1/quote?${params.toString()}`
+      );
 
       if (!response.ok) {
-        console.error('Jupiter quote error:', response.status);
+        console.error("Jupiter quote error:", response.status);
         return null;
       }
 
       const quote = await response.json();
-      console.log('Jupiter quote:', quote);
-      
+      console.log("Jupiter quote:", quote);
+
       return quote;
     } catch (error) {
-      console.error('Failed to get Jupiter quote:', error);
+      console.error("Failed to get Jupiter quote:", error);
       return null;
     }
   }
@@ -84,9 +86,9 @@ class JupiterService {
   ): Promise<JupiterSwapResult | null> {
     try {
       const response = await fetch(`${JUPITER_API_URL}/swap/v1/swap`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           quoteResponse: quote,
@@ -97,16 +99,16 @@ class JupiterService {
       });
 
       if (!response.ok) {
-        console.error('Jupiter swap error:', response.status);
+        console.error("Jupiter swap error:", response.status);
         return null;
       }
 
       const swapResult = await response.json();
-      console.log('Jupiter swap transaction:', swapResult);
-      
+      console.log("Jupiter swap transaction:", swapResult);
+
       return swapResult;
     } catch (error) {
-      console.error('Failed to get Jupiter swap transaction:', error);
+      console.error("Failed to get Jupiter swap transaction:", error);
       return null;
     }
   }
@@ -136,14 +138,13 @@ class JupiterService {
   /**
    * Calculate price impact percentage
    */
-  getPriceImpactLevel(priceImpact: number): 'low' | 'medium' | 'high' {
-    if (priceImpact < 1) return 'low';
-    if (priceImpact < 5) return 'medium';
-    return 'high';
+  getPriceImpactLevel(priceImpact: number): "low" | "medium" | "high" {
+    if (priceImpact < 1) return "low";
+    if (priceImpact < 5) return "medium";
+    return "high";
   }
 }
 
 // Export singleton instance
 export const jupiterService = JupiterService.getInstance();
 export default jupiterService;
-
