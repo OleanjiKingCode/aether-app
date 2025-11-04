@@ -7,6 +7,7 @@
 
 export interface LifiWidgetConfig {
   integrator: string;
+  fee?: number;
   theme?: {
     container?: {
       borderRadius?: string;
@@ -82,9 +83,10 @@ class LifiService {
   /**
    * Create widget configuration
    */
-  createWidgetConfig(integrator: string = "aetherdapp"): LifiWidgetConfig {
+  createWidgetConfig(integrator: string = "aetherDex"): LifiWidgetConfig {
     return {
       integrator,
+      fee: 0.02, // 2% fee
       theme: {
         container: {
           borderRadius: "12px",

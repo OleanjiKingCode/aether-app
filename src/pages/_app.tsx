@@ -24,6 +24,7 @@ import { WalletContextProvider } from "@/context/WalletContext";
 import { BirdEyeProvider } from "@/context/BirdEyeContext";
 import { useMemo } from "react";
 import { CustomWagmiProvider } from "@/wagmi";
+import ToastWrapper from "@/components/common/toast-wrapper";
 
 const interTight = Inter_Tight({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -86,6 +87,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           </QueryClientProvider>
                         </main>
                         <AlertModal />
+                        <ToastWrapper />
                       </GlobalProvider>
                     </BirdEyeProvider>
                   </WalletContextProvider>

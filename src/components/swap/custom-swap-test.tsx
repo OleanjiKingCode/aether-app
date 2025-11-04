@@ -15,7 +15,7 @@ const CustomSwapTest = () => {
   const [error, setError] = useState<string | null>(null)
 
   // Initialize LiFi SDK
-  useLifiSdk('aetherdapp-test')
+  useLifiSdk('aetherDex')
 
   useEffect(() => {
     const loadData = async () => {

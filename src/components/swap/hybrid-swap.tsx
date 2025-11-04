@@ -10,8 +10,7 @@ import PrivacyMode from "./privacy-mode";
 import DetailAccordion from "./detail-accordion";
 import SwapTransactionDetail from "./swap-transaction-detail";
 import SwapAIRoute from "./swap-ai-route";
-import { IoSwapVertical } from "react-icons/io5";
-import SettingIcon from "public/icon/settings.svg";
+import { IoSwapVertical, IoSettings } from "react-icons/io5";
 import { Progressbar } from "../common/progresbar";
 import Bar from "../common/skeleton/bar";
 
@@ -59,7 +58,8 @@ const HybridSwap = ({
 
   // LiFi Widget Configuration
   const widgetConfig: WidgetConfig = {
-    integrator: "aetherdapp",
+    integrator: "aetherDex",
+    fee: 0.02, // 2% fee
     variant: "compact",
     appearance: "dark",
     theme: {
@@ -151,7 +151,7 @@ const HybridSwap = ({
           <LiFiWidget
             ref={handleWidgetRef}
             config={widgetConfig}
-            integrator="aetherdapp"
+            integrator="aetherDex"
             elementRef={elementRef as React.RefObject<HTMLDivElement>}
             formRef={formRef}
           />
@@ -247,7 +247,7 @@ const HybridSwap = ({
 
       {isPrivacy && (
         <DetailAccordion
-          icon={SettingIcon}
+          icon={IoSettings}
           title="Advanced Settings"
           className="!border-none pl-0"
         >

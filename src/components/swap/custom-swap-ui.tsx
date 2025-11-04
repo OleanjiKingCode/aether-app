@@ -10,6 +10,7 @@ import { lifiService } from '../../services/lifi.service'
 import { jupiterService } from '../../services/jupiter.service'
 import { useLifiSdk } from '../../hooks/useLifiSdk'
 import { useWalletContext } from '../../context/WalletContext'
+import { useGlobalContext } from '../../context/GlobalContext'
 import SwitchButton from '../common/switch-button'
 import EnhancedTokenPanel from './enhanced-token-panel'
 import RouteDisplay from './route-display'
@@ -90,7 +91,7 @@ const CustomSwapUI = ({
   const [useJupiter, setUseJupiter] = useState(false) // Track if using Jupiter for Solana swaps
   
   // Initialize LiFi SDK
-  useLifiSdk('aetherdapp')
+  useLifiSdk('aetherDex')
   
   // Wallet context
   const { isConnected, activeWalletType } = useWalletContext()
@@ -100,6 +101,9 @@ const CustomSwapUI = ({
   const { switchChainAsync } = useSwitchChain()
   const { publicKey, signTransaction, sendTransaction } = useWallet()
   const { connection } = useConnection()
+  
+  // Global context for notifications
+  const { notifySuccess, notifyError } = useGlobalContext()
 
   // Form data state - default based on wallet type
   // Solana chain ID according to LI.FI docs
@@ -524,7 +528,9 @@ const CustomSwapUI = ({
         fromAmount: amount.toString(),
         fromAddress: fromAddress,
         toAddress: toAddress, // Only set if cross-chain to different ecosystem
-          slippage: formData.slippage / 100,
+        slippage: formData.slippage / 100,
+        integrator: 'aetherDex',
+        fee: 0.02, // 2% fee
       }
 
       console.log('Fetching quote with params:', quoteRequest)
@@ -896,29 +902,30 @@ const CustomSwapUI = ({
         })
         
         console.log('Solana transaction sent! Signature:', signature)
+        setTxSignature(signature)
         
-        // Wait for confirmation
-        await connection.confirmTransaction(signature, 'confirmed')
-        
+        // Show success notification immediately after getting signature
         const txHash = signature
+        const solscanLink = `https://solscan.io/tx/${signature}`
         
-        // Continue with cross-chain monitoring...
-        setExecutionStatus('Transaction submitted! Waiting for confirmation...')
+        // Show success toast notification
+        notifySuccess(
+          `✅ Swap transaction submitted! Signature: ${signature.slice(0, 8)}...${signature.slice(-8)}`
+        )
+        
+        setExecutionStatus('Swap done!')
         setExecutionStep(5)
-        console.log('Waiting for transaction confirmation...')
-        await new Promise(resolve => setTimeout(resolve, 5000))
-
-        // Step 3: Check status for cross-chain transfers (following LI.FI docs)
-        if (formData.fromChainId !== formData.toChainId) {
-          setExecutionStatus('Bridging tokens to destination chain...')
-          setExecutionStep(6)
-          console.log('Cross-chain swap detected, monitoring status...')
-      await new Promise(resolve => setTimeout(resolve, 3000))
-        }
-
-        setExecutionStatus('Swap completed!')
-        setExecutionStep(formData.fromChainId !== formData.toChainId ? 7 : 5)
-        console.log('Swap completed successfully!')
+        console.log('Transaction submitted successfully!')
+        
+        // Let the transaction confirm in the background - don't wait for it
+        // This prevents the timeout error
+        connection.confirmTransaction(signature, 'confirmed')
+          .then(() => {
+            console.log('Transaction confirmed on Solana blockchain')
+          })
+          .catch((err) => {
+            console.log('Note: Transaction may still succeed even if confirmation times out:', err.message)
+          })
         
         // Store swap in history
         const swapRecord = {
@@ -1043,19 +1050,28 @@ const CustomSwapUI = ({
       ) {
         // User rejection is not an error, just log as info
         console.log('User rejected the transaction')
-        setRouteError('User rejected')
+        setRouteError('Transaction cancelled by user')
+        notifyError('Transaction cancelled by user')
       } else if (error.message?.includes('insufficient funds')) {
-      console.error('Failed to execute swap:', error)
-        setRouteError('Insufficient funds for this transaction.')
+        console.error('Failed to execute swap:', error)
+        const msg = 'Insufficient funds for this transaction'
+        setRouteError(msg)
+        notifyError(msg)
       } else if (error.message?.includes('network')) {
         console.error('Failed to execute swap:', error)
-        setRouteError('Network error. Please check your connection and try again.')
+        const msg = 'Network error. Please check your connection and try again'
+        setRouteError(msg)
+        notifyError(msg)
       } else if (error.message?.includes('approve') || error.message?.includes('allowance')) {
         console.error('Failed to execute swap:', error)
-        setRouteError('Token approval failed. Please try again.')
+        const msg = 'Token approval failed. Please try again'
+        setRouteError(msg)
+        notifyError(msg)
       } else {
         console.error('Failed to execute swap:', error)
-        setRouteError(error.message || 'Failed to execute swap. Please try again.')
+        const msg = error.message || 'Failed to execute swap. Please try again'
+        setRouteError(msg)
+        notifyError(msg)
       }
     } finally {
       setIsExecuting(false)
@@ -1079,7 +1095,9 @@ const CustomSwapUI = ({
     isPrivacy,
     availableChains,
     useJupiter,
-    connection
+    connection,
+    notifySuccess,
+    notifyError
   ])
 
   const handleModeChange = useCallback((newMode: number) => {

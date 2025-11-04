@@ -11,10 +11,17 @@ interface AlertModal {
   type: string;
   message: string;
 }
+interface ToastType {
+  show: boolean;
+  type: "success" | "error" | "info";
+  message: string;
+}
 
 interface GlobalContextType {
   alertModal: AlertModal;
   setAlertModal: (updatedStatus: AlertModal) => void;
+  toast: ToastType;
+  setToast: (toast: ToastType) => void;
   notifySuccess: (message: string) => void;
   notifyError: (message: string) => void;
   notifyInfo: (message: string) => void;
@@ -30,6 +37,8 @@ interface GlobalContextType {
 const GlobalContext = createContext<GlobalContextType>({
   alertModal: { show: false, type: "", message: "" },
   setAlertModal: () => {},
+  toast: { show: false, type: "info", message: "" },
+  setToast: (toast: ToastType) => {},
   notifySuccess: (message: string) => {},
   notifyError: (message: string) => {},
   notifyInfo: (message: string) => {},
@@ -53,6 +62,11 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     type: "",
     message: "",
   });
+  const [toast, setToast] = useState<ToastType>({
+    show: false,
+    type: "info",
+    message: "",
+  });
   const [screenLoadingStatus, setScreenLoadingStatus] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
@@ -71,15 +85,17 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   }, [screenLoadingStatus]);
 
   const notifySuccess = (message: string) =>
-    setAlertModal({ show: true, type: "success", message });
+    setToast({ show: true, type: "success", message });
   const notifyError = (message: string) =>
-    setAlertModal({ show: true, type: "error", message });
+    setToast({ show: true, type: "error", message });
   const notifyInfo = (message: string) =>
-    setAlertModal({ show: true, type: "info", message });
+    setToast({ show: true, type: "info", message });
 
   const value = {
     alertModal,
     setAlertModal,
+    toast,
+    setToast,
     notifySuccess,
     notifyError,
     notifyInfo,

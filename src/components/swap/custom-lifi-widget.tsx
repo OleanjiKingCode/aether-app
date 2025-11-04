@@ -30,7 +30,8 @@ const CustomLiFiWidget = ({
 
   // Create widget configuration
   const widgetConfig: WidgetConfig = {
-    integrator: 'aetherdapp',
+    integrator: 'aetherDex',
+    fee: 0.02, // 2% fee
     variant,
     appearance: 'dark',
     theme: {
@@ -146,7 +147,7 @@ const CustomLiFiWidget = ({
       <LiFiWidget
         ref={handleWidgetRef}
         config={widgetConfig}
-        integrator="aetherdapp"
+        integrator="aetherDex"
         open={isOpen}
         onClose={handleClose}
         elementRef={elementRef as React.RefObject<HTMLDivElement>}

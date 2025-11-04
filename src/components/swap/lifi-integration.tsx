@@ -34,7 +34,8 @@ const LiFiIntegration = ({
 
   // Create widget configuration with AetherDex branding
   const widgetConfig: WidgetConfig = {
-    integrator: 'aetherdapp',
+    integrator: 'aetherDex',
+    fee: 0.02, // 2% fee
     variant,
     appearance: 'dark',
     theme: {
@@ -195,7 +196,7 @@ const LiFiIntegration = ({
         <LiFiWidget
           ref={handleWidgetRef}
           config={widgetConfig}
-          integrator="aetherdapp"
+          integrator="aetherDex"
           elementRef={elementRef as React.RefObject<HTMLDivElement>}
           formRef={formRef}
         />

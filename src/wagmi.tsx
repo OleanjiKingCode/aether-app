@@ -85,7 +85,12 @@ export const config = getDefaultConfig({
 
 // Create SDK config using Wagmi actions and configuration
 const configLIFI = createConfig({
-  integrator: "atherdapp",
+  integrator: "aetherDex",
+  apiKey:
+    "3b6d01c6-9d28-4de0-9df9-8bcabecb4be3.4fa6781c-0d9f-4dce-8793-6a953f224edc",
+  routeOptions: {
+    fee: 0.02, // 2% fee on all swaps
+  },
   providers: [
     EVM({
       getWalletClient: () => getWalletClient(config),
