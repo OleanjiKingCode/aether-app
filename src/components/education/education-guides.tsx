@@ -108,7 +108,7 @@ const EducationGuides = () => {
         <div className="flex flex-col gap-6">
             <EducationGuideSearch keyword={keyword} setKeyword={setKeyword} category={category} setCategory={setCategory} />
             <div className="flex gap-2 items-center">
-                <Image src={EducationBookIcon} width={16} height={16} alt="" />
+                <Image src={EducationBookIcon.src} width={16} height={16} alt="" />
                 <div className="text-sm text-foreground font-semibold">Tutorial And Guides</div>
             </div>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">

@@ -196,7 +196,7 @@ const RouteDisplay = ({ route, isLoading = false, onRouteSelect }: RouteDisplayP
       {/* Expanded Details */}
       {isExpanded && (
         <DetailAccordion 
-          icon={SettingIcon} 
+          icon={SettingIcon.src} 
           title="Route Details" 
           className="!border-none pl-0"
         >

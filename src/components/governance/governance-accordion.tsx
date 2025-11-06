@@ -57,7 +57,7 @@ const GovernanceAccordion = ({ isLoading }: GovernanceAccordionProps) => {
                     {expandedIndex === 0 && (
                         <div className="py-6 flex flex-col gap-3">
                             <div className="flex gap-2 items-start">
-                                <Image src={VotingPowerIcon} width={24} height={24} alt="" />
+                                <Image src={VotingPowerIcon.src} width={24} height={24} alt="" />
                                 <div className="flex flex-col gap-2">
                                     <div className="text-xs text-foreground font-semibold">
                                         Voting Power
@@ -68,7 +68,7 @@ const GovernanceAccordion = ({ isLoading }: GovernanceAccordionProps) => {
                                 </div>
                             </div>
                             <div className="flex gap-2 items-start">
-                                <Image src={QuorumRequirementsIcon} width={24} height={24} alt="" />
+                                <Image src={QuorumRequirementsIcon.src} width={24} height={24} alt="" />
                                 <div className="flex flex-col gap-2">
                                     <div className="text-xs text-foreground font-semibold">
                                         Quorum Requirements
@@ -79,7 +79,7 @@ const GovernanceAccordion = ({ isLoading }: GovernanceAccordionProps) => {
                                 </div>
                             </div>
                             <div className="flex gap-2 items-start">
-                                <Image src={VotingPeriodIcon} width={24} height={24} alt="" />
+                                <Image src={VotingPeriodIcon.src} width={24} height={24} alt="" />
                                 <div className="flex flex-col gap-2">
                                     <div className="text-xs text-foreground font-semibold">
                                         Voting Period
@@ -90,7 +90,7 @@ const GovernanceAccordion = ({ isLoading }: GovernanceAccordionProps) => {
                                 </div>
                             </div>
                             <div className="flex gap-2 items-start">
-                                <Image src={AutoExecutionIcon} width={24} height={24} alt="" />
+                                <Image src={AutoExecutionIcon.src} width={24} height={24} alt="" />
                                 <div className="flex flex-col gap-2">
                                     <div className="text-xs text-foreground font-semibold">
                                         Auto Execution

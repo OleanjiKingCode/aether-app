@@ -172,7 +172,7 @@ const SwapTransactionDetail = ({ route, fromToken, toToken, fromAmount, slippage
                 <div className="flex justify-between">
                     <div className="flex gap-1.5 items-center">
                         <div className="">
-                            <Image src={SwapTransactionDetailIcon} width={20} height={20} alt="" />
+                            <Image src={SwapTransactionDetailIcon.src} width={20} height={20} alt="" />
                         </div>
                         <div className="text-base text-foreground font-semibold">
                             Transaction Details

@@ -165,7 +165,7 @@ const Detail = ({ isLoading, route, fromChain, toChain, fromToken, toToken }: De
                 hasRoute={!!route}
             />
 
-            <DetailAccordion isLoading={isLoading} icon={MarketInfoIcon} title="Market Info">
+            <DetailAccordion isLoading={isLoading} icon={MarketInfoIcon.src} title="Market Info">
                 <div className="flex flex-col gap-2.5 mb-2.5">
                     <div className="flex justify-between">
                         {isLoading && <Bar barClassName="w-17 h-2.5" />}
@@ -206,7 +206,7 @@ const Detail = ({ isLoading, route, fromChain, toChain, fromToken, toToken }: De
                 </div>
             </DetailAccordion >
 
-            <DetailAccordion isLoading={isLoading} icon={SupportChainIcon} title="Supported Networks">
+            <DetailAccordion isLoading={isLoading} icon={SupportChainIcon.src} title="Supported Networks">
                 <div className="flex flex-col gap-6">
                     <div className="flex flex-col gap-3">
                         {isLoading && <Bar barClassName="w-full h-2.5" />}
@@ -339,7 +339,7 @@ const Detail = ({ isLoading, route, fromChain, toChain, fromToken, toToken }: De
                     </div>
                 </div>
             </DetailAccordion>
-            <DetailAccordion isLoading={isLoading} icon={RecentSwapIcon} title="Recent Swaps">
+            <DetailAccordion isLoading={isLoading} icon={RecentSwapIcon.src} title="Recent Swaps">
                 <div className="flex flex-col gap-2.5 mb-2.5">
                     {swapHistory.length === 0 && !isLoading && (
                         <div className="text-xs text-muted-foreground text-center py-4">
@@ -390,7 +390,7 @@ const Detail = ({ isLoading, route, fromChain, toChain, fromToken, toToken }: De
                                             </div>
                                             {row.isProtected && (
                                                 <div className="flex items-center justify-center bg-muted border border-input p-1">
-                                                    <Image src={SwapHistoryProtectedIcon} width={12} height={12} alt="" />
+                                                    <Image src={SwapHistoryProtectedIcon.src} width={12} height={12} alt="" />
                                                 </div>
                                             )}
                                         </div>

@@ -25,7 +25,7 @@ const Governance = () => {
                 </div>
                 <div>
                     <button className={`gradient-bg text-xs font-semibold text-white px-4 py-[9px] cursor-pointer flex gap-1 ${isConnected ? '' : 'opacity-50'}`} onClick={handleShowProposalModal}>
-                        <Image src={UserNoteIcon} width={16} height={16} alt="" />
+                        <Image src={UserNoteIcon.src} width={16} height={16} alt="" />
                         Submit Proposal
                     </button>
                 </div>

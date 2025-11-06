@@ -115,7 +115,7 @@ const PortfolioAnalytics = () => {
         <div className="p-6 border-input border-[1px] bg-card  w-full max-w-250 xl:max-w-full xl:w-125">
             <div className="flex items-center gap-1.5">
                 <div className="">
-                    <Image src={ChartIcon} alt="" height={15} width={15} />
+                    <Image src={ChartIcon.src} alt="" height={15} width={15} />
                 </div>
                 <div className="font-geist-mono font-semibold text-sm sm:text-base text-foreground">
                     Portfolio Analytics

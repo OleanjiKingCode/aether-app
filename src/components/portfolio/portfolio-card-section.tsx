@@ -220,7 +220,7 @@ const PortfolioCardSection = () => {
             <BaseCard>
                 <div className="flex flex-col gap-2">
                     <div className="flex gap-3">
-                        <Image src={StarsIcon} width={20} height={20} alt="" />
+                        <Image src={StarsIcon.src} width={20} height={20} alt="" />
                         <div className="text-sm text-foreground">AI Insights</div>
                     </div>
                     <div className="flex flex-col xl:flex-row justify-between gap-6">

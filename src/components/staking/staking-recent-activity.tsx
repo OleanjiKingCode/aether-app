@@ -55,7 +55,7 @@ const StakingRecentActivity = ({ isLoading }: StakingRecentActivityProps) => {
         <BaseCard className="p-8 flex flex-col gap-4 w-full mt-6">
             <div className="flex gap-1.5 items-center">
                 <div>
-                    <Image src={RecentActivityIcon} width={20} height={20} alt="" />
+                    <Image src={RecentActivityIcon.src} width={20} height={20} alt="" />
                 </div>
                 <div className="text-base text-foreground font-semibold">
                     Recent Activity

@@ -81,7 +81,7 @@ const PortfolioAllocation = () => {
         <div className="p-6 border-input border-[1px] bg-card  w-full max-w-250 xl:max-w-full xl:w-125">
             <div className="flex items-center gap-1.5">
                 <div className="">
-                    <Image src={ChartIcon} alt="" height={15} width={15} />
+                    <Image src={ChartIcon.src} alt="" height={15} width={15} />
                 </div>
                 <div className="font-geist-mono font-semibold text-base text-foreground">
                     Portfolio Allocation
@@ -159,7 +159,7 @@ const PortfolioAllocation = () => {
             {!isConnected && (<div className="flex flex-col gap-5 w-full items-center justify-center text-center mt-[30px]">
 
                 <div className="rounded-full bg-[#99774033] w-30 h-30 flex items-center justify-center">
-                    <Image src={ChartIcon} alt="" height={64} width={64} />
+                    <Image src={ChartIcon.src} alt="" height={64} width={64} />
                 </div>
                 <div className="flex flex-col gap-1.5 w-full items-center justify-center text-center">
                     <div className="text-foreground text-base font-normal font-geist-mono">

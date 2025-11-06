@@ -88,16 +88,16 @@ const Cards = () => {
         title="Portfolio Value" 
         content={`$${portfolioValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} 
         description={portfolioChange} 
-        icon={PortfolioCardIcon} 
-        descriptionIcon={ArrowUpIcon} 
+        icon={PortfolioCardIcon.src} 
+        descriptionIcon={ArrowUpIcon.src} 
       />
       <Card 
         isLoading={isLoading} 
         title="24h Volume" 
         content="$24.45M" 
         description="+8.2%" 
-        icon={VolumneIcon} 
-        descriptionIcon={ArrowUpIcon} 
+        icon={VolumneIcon.src} 
+        descriptionIcon={ArrowUpIcon.src} 
         additionalDescription="Last 24hrs" 
       />
       <Card 
@@ -105,14 +105,14 @@ const Cards = () => {
         title="Assets" 
         content={assetCount.toString()} 
         description={`${chainsCount} chain${chainsCount !== 1 ? 's' : ''}`} 
-        icon={AssetIcon} 
+        icon={AssetIcon.src} 
       />
       <Card 
         isLoading={isLoading} 
         title="Staking APY" 
         content="10.2%" 
         description="Current rate" 
-        icon={StakingIcon} 
+        icon={StakingIcon.src} 
       />
     </div>
   );

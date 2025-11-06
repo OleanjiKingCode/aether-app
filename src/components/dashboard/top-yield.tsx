@@ -140,7 +140,7 @@ const TopYield = ({ trendingTokens, isLoading }: TopYieldProps) => {
         <div className="p-6 border-input border-[1px] bg-card w-full max-w-250 xl:max-w-full ">
             <div className="flex items-center gap-1.5">
                 <div className="">
-                    <Image src={TopYieldIcon} alt="" height={20} width={20} />
+                    <Image src={TopYieldIcon.src} alt="" height={20} width={20} />
                 </div>
                 <div className="font-geist-mono font-semibold text-base text-foreground">
                 AI Trading Signals 

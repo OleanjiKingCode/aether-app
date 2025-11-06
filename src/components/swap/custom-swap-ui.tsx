@@ -1327,7 +1327,7 @@ const CustomSwapUI = ({
       
       {isPrivacy && (
         <DetailAccordion 
-          icon={SettingIcon} 
+          icon={SettingIcon.src} 
           title="Advanced Settings" 
           className="!border-none pl-0"
         >

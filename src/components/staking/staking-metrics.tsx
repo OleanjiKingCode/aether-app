@@ -20,7 +20,7 @@ const StakingMetrics = () => {
             <BaseCard className="p-6">
                 <div className="flex gap-2">
                     <div>
-                        <Image src={PerformanceMetricIcon} width={20} height={20} alt="" />
+                        <Image src={PerformanceMetricIcon.src} width={20} height={20} alt="" />
                     </div>
                     <div className="text-base text-foreground font-semibold">
                         Perfomance Metrics
@@ -73,7 +73,7 @@ const StakingMetrics = () => {
             <BaseCard className="p-6">
                 <div className="flex gap-2">
                     <div>
-                        <Image src={StakingTierIcon} width={20} height={20} alt="" />
+                        <Image src={StakingTierIcon.src} width={20} height={20} alt="" />
                     </div>
                     <div className="text-base text-foreground font-semibold">
                         Staking Tier
