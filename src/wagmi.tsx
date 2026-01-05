@@ -93,12 +93,12 @@ const configLIFI = createConfig({
   },
   providers: [
     EVM({
-      getWalletClient: () => getWalletClient(config),
+      getWalletClient: () => getWalletClient(config as any),
       switchChain: async (chainId: number) => {
-        const chain = await switchChain(config, {
+        const chain = await switchChain(config as any, {
           chainId: chainId as unknown as never,
         });
-        return getWalletClient(config, {
+        return getWalletClient(config as any, {
           chainId: (chain as { id: number }).id,
         });
       },

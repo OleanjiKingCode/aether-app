@@ -22,7 +22,7 @@
     "@lifi/sdk": "^3.12.14",
     "@lifi/widget": "^3.33.1",
     "@mysten/dapp-kit": "^0.19.2",
-    "@rainbow-me/rainbowkit": "^2.2.8",
+    "@rainbow-me/rainbowkit": "^2.2.10",
     "@solana/wallet-adapter-base": "^0.9.27",
     "@solana/wallet-adapter-react": "^0.15.39",
     "@solana/wallet-adapter-react-ui": "^0.9.39",
