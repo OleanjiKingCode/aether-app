@@ -24,7 +24,7 @@ const SwapDetail = ({ isProtection, isSmartRouting, network, isLoading, hasRoute
             <div className="flex gap-1.5 items-center">
                 <div className="">
                     {isLoading && <Bar barClassName="w-3 h-3" />}
-                    {!isLoading && <Image src={SwapDetailIcon.src} width={15} height={15} alt="" />}
+                    {!isLoading && <Image src={SwapDetailIcon} width={15} height={15} alt="" />}
                 </div>
                 <div className="text-base text-foreground">
                     {isLoading && <Bar barClassName="w-20 h-4" />}
@@ -59,7 +59,7 @@ const SwapDetail = ({ isProtection, isSmartRouting, network, isLoading, hasRoute
             <div className="flex justify-between">
                 <div className="flex gap-3">
                     {isLoading && <Bar barClassName="w-3 h-2.5" />}
-                    {!isLoading && <Image src={SwapDetailChainIcon.src} width={20} height={20} alt="" />}
+                    {!isLoading && <Image src={SwapDetailChainIcon} width={20} height={20} alt="" />}
 
                     {isLoading && <Bar barClassName="w-20 h-2.5" />}
                     {!isLoading && <div className="text-sm text-foreground">Chain</div>}

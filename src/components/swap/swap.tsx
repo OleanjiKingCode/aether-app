@@ -115,7 +115,7 @@ const Swap = ({ isLoading }: SwapProps) => {
       {isPrivacy && <SwapAIRoute />}
       {isPrivacy && (
         <DetailAccordion
-          icon={SettingIcon.src}
+          icon={SettingIcon}
           title="Advanced Settings"
           className="!border-none pl-0 op"
         >

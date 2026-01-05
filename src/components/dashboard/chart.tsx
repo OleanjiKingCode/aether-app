@@ -39,7 +39,7 @@ const Chart = () => {
         <div className="p-6 border-input bg-card border-[1px] w-full">
             <div className="flex items-center gap-1.5">
                 <div className="">
-                    <Image src={ChartIcon.src} alt="" height={15} width={15} />
+                    <Image src={ChartIcon} alt="" height={15} width={15} />
                 </div>
                 <div className="font-geist-mono font-semibold text-base text-foreground">
                     Protocol Overview

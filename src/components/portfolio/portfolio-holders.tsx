@@ -1,6 +1,6 @@
 import Image from "next/image";
 import RecentIcon from "public/icon/recent-activity-icon.svg"
-import ConnectWallet from "../connect-wallet.tsx";
+import ConnectWallet from "../connect-wallet";
 import { useEffect, useState, useRef } from "react";
 import { useAccount } from "wagmi";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -153,7 +153,7 @@ const PortfolioHolders = () => {
             </div>
             {!isConnected && (<div className="flex flex-col gap-5 w-full items-center justify-center text-center mt-10">
                 <div className="rounded-full bg-[#BB3EFF33] w-30 h-30 flex items-center justify-center">
-                    <Image src={RecentIcon.src} alt="" height={64} width={64} />
+                    <Image src={RecentIcon} alt="" height={64} width={64} />
                 </div>
                 <div className="flex flex-col gap-1.5 w-full items-center justify-center text-center">
                     <div className="text-foreground text-base font-normal font-geist-mono">

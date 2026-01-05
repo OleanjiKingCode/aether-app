@@ -9,12 +9,12 @@ const ReadyToStart = () => {
     return (
         <div className="flex flex-col gap-6">
             <div className="p-6 border-input border-[1px] bg-card w-full max-w-250 xl:max-w-full ">
-                <ReadyToStartDashboard icon={StakeDashboardIcon.src} title="Start Earning Rewards" content="Connect your wallet to stake AETH tokens, earn up to 15.2% APY, and unlock governance rights. Choose from flexible staking periods with bonus multipliers." />
+                <ReadyToStartDashboard icon={StakeDashboardIcon} title="Start Earning Rewards" content="Connect your wallet to stake AETH tokens, earn up to 15.2% APY, and unlock governance rights. Choose from flexible staking periods with bonus multipliers." />
             </div>
             <div className="flex justify-between gap-6 flex-col 2xl:flex-row">
-                <ReadyDescriptionCard title="Up to 15.2% APY" content="Earn competitive rewards with longer staking periods offering higher APY rates" icon={UpToAPYIcon.src} />
-                <ReadyDescriptionCard title="Governance Power" content="Participate in protocol decisions and vote on important proposals" icon={GovernanceIcon.src} />
-                <ReadyDescriptionCard title="Flexible Terms" content="Choose from 1 month to 1 year staking periods with bonus multipliers" icon={FlexibleTermsIcon.src} />
+                <ReadyDescriptionCard title="Up to 15.2% APY" content="Earn competitive rewards with longer staking periods offering higher APY rates" icon={UpToAPYIcon} />
+                <ReadyDescriptionCard title="Governance Power" content="Participate in protocol decisions and vote on important proposals" icon={GovernanceIcon} />
+                <ReadyDescriptionCard title="Flexible Terms" content="Choose from 1 month to 1 year staking periods with bonus multipliers" icon={FlexibleTermsIcon} />
             </div>
         </div>
     )

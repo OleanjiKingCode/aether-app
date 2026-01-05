@@ -35,9 +35,9 @@ export const SIDE_BAR_PAGES = [
         title: "Referral",
         path: "/referral",
     },
-    {
-        icon: "/icon/settings.svg",
-        title: "Settings",
-        path: "/settings",
-    },
+    // {
+    //     icon: "/icon/settings.svg",
+    //     title: "Settings",
+    //     path: "/settings",
+    // },
 ];

@@ -31,6 +31,8 @@ interface GlobalContextType {
   setIsAuthenticated: (value: boolean) => void;
   isShowMobileMenu: boolean;
   setIsShowMobileMenu: (value: boolean) => void;
+  referralCode: string | null;
+  setReferralCode: (code: string | null) => void;
 }
 
 // Create the context with a default value of undefined
@@ -48,6 +50,8 @@ const GlobalContext = createContext<GlobalContextType>({
   setIsAuthenticated: () => {},
   isShowMobileMenu: false,
   setIsShowMobileMenu: () => {},
+  referralCode: null,
+  setReferralCode: () => {},
 });
 
 // Define the props for the provider
@@ -70,6 +74,16 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   const [screenLoadingStatus, setScreenLoadingStatus] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
+  const [referralCode, setReferralCode] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check local storage for referral code on mount
+    const storedCode = localStorage.getItem("aether_referral_code");
+    if (storedCode) {
+      setReferralCode(storedCode);
+    }
+  }, []);
+
   useEffect(() => {
     if (
       screenLoadingStatus.includes("fail") ||
@@ -105,6 +119,8 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     setIsAuthenticated,
     isShowMobileMenu,
     setIsShowMobileMenu,
+    referralCode,
+    setReferralCode,
   };
 
   return (

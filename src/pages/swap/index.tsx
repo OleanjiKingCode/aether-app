@@ -16,10 +16,10 @@ const Swap = () => {
                         Trade tokens across Solana and Ethereum with AI-optimized routing and privacy protection.
                     </p>
                     <div className="grid grid-cols-2 md:flex gap-3 mt-1.5">
-                        <Badge icon={ExcutionIcon.src} title="~25s Execution" />
-                        <Badge icon={StarsIcon.src} title="AI Powered" />
-                        <Badge icon={StarsIcon.src} title="0.2% fee" />
-                        <Badge icon={StarsIcon.src} title="Cross-chain" />
+                        <Badge icon={ExcutionIcon} title="~25s Execution" />
+                        <Badge icon={StarsIcon} title="AI Powered" />
+                        <Badge icon={StarsIcon} title="0.2% fee" />
+                        <Badge icon={StarsIcon} title="Cross-chain" />
                     </div>
                 </div>
             </div>

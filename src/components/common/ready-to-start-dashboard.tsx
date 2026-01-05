@@ -1,5 +1,5 @@
 import Image from "next/image"
-import ConnectWallet from "../connect-wallet.tsx"
+import ConnectWallet from "../connect-wallet"
 import UnifiedWallet from "../unified-wallet"
 
 interface ReadyToStartDashboardProps {

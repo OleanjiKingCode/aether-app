@@ -20,7 +20,7 @@ const AIRecommendationAlert = ({ value, description, isLoading }: TimeAlertProps
             <div className="flex gap-2 items-center">
                 <div className="rounded-full gradient-bg min-w-5 h-5 flex justify-center items-center">
                     {isLoading && (<Bar barClassName="w-3 h-3" />)}
-                    {!isLoading && (<Image src={StarsIcon.src} width={9.3} height={9.3} alt="" />)}
+                    {!isLoading && (<Image src={StarsIcon} width={9.3} height={9.3} alt="" />)}
                 </div>
                 <div className="flex gap-2">
                     {isLoading && (<Bar barClassName="!min-w-80 w-full h-[10.5px]" />)}

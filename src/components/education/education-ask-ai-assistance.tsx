@@ -13,7 +13,7 @@ const EducationAskAIAssistance = ({ isLoading }: EducationAskAIAssistanceProps) 
         <BaseCard className="p-8">
             <div className="py-5 flex w-full flex-col items-center justify-center gap-5">
                 {isLoading && <Bar barClassName="w-12.5 h-12.5" />}
-                {!isLoading && <Image src={QuestionMarkIcon.src} width={50} height={50} alt="" />}
+                {!isLoading && <Image src={QuestionMarkIcon} width={50} height={50} alt="" />}
                 <div className="flex flex-col gap-1.5 xl:w-175 items-center justify-center text-center">
                     {isLoading && <Bar barClassName="w-50 h-3" />}
                     {!isLoading && <div className="text-base text-foreground font-semibold">Need personalized guidance?</div>}
@@ -23,7 +23,7 @@ const EducationAskAIAssistance = ({ isLoading }: EducationAskAIAssistanceProps) 
                 </div>
                 <button className="gradient-bg flex text-xs font-semibold items-center px-4 py-[9px] text-white gap-1 cursor-pointer">
                     {isLoading && <Bar barClassName="w-5 h-5" />}
-                    {!isLoading && <Image src={AskAIIcon.src} width={16} height={16} alt="" />}
+                    {!isLoading && <Image src={AskAIIcon} width={16} height={16} alt="" />}
                     
                     {isLoading && <Bar barClassName="w-10 h-3" />}
                     {!isLoading && "Ask AI Assistance"}

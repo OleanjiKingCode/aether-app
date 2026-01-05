@@ -16,7 +16,7 @@ const PrivacyMode = ({ isPrivacy, setIsPrivacy, isLoading }: PrivacyModeProps) =
             <div className="flex gap-1">
                 <div>
                     {isLoading && <Bar barClassName="w-4 h-4" />}
-                    {!isLoading && <Image src={PrivacyModeIcon.src} width={16} height={16} alt="" />}
+                    {!isLoading && <Image src={PrivacyModeIcon} width={16} height={16} alt="" />}
                 </div>
                 <div className="flex flex-col gap-1">
                     {isLoading && <Bar barClassName="w-20 h-3" />}

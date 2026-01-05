@@ -19,28 +19,28 @@ interface StakingRewardTrackerProps {
 }
 
 const StakingRewardTracker = ({ isLoading }: StakingRewardTrackerProps) => {
-  const mockData = [
-    { time: "2hrs", price: 1, label: "1k" },
-    { time: "4hrs", price: 5000, label: "5k" },
-    { time: "6hrs", price: 2000, label: "2k" },
-    { time: "8hrs", price: 3000, label: "3k" },
-    { time: "10hrs", price: 7000, label: "7k" },
+  const mockData: any[] = [
+    // { time: '2hrs', price: 1, label: "1k" },
+    // { time: '4hrs', price: 5000, label: "5k" },
+    // { time: '6hrs', price: 2000, label: "2k" },
+    // { time: '8hrs', price: 3000, label: "3k" },
+    // { time: '10hrs', price: 7000, label: "7k" },
   ];
   return (
     <BaseCard className="flex gap-5 p-6 w-full xl:w-[450px] flex-col h-fit">
       <div className="flex gap-1.5 items-center">
-        <Image src={RewardTrackerIcon.src} width={20} height={20} alt="" />
+        <Image src={RewardTrackerIcon} width={20} height={20} alt="" />
         <div className="text-base text-foreground font-semibold">
           Reward tracker
         </div>
       </div>
       <div className="flex flex-col gap-3 w-full items-center justify-center">
-        <Image src={GiftIcon.src} width={32} height={32} alt="" />
+        <Image src={GiftIcon} width={32} height={32} alt="" />
         <div className="text-xs text-muted-foreground font-medium">
           Claimable Rewards
         </div>
-        <div className="text-2xl text-green-600 font-medium">25.8 AETH</div>
-        <div className="text-sm text-muted-foreground font-medium">$77.66</div>
+        <div className="text-2xl text-green-600 font-medium">0.00 AETH</div>
+        <div className="text-sm text-muted-foreground font-medium">$0.00</div>
         <button className="w-full h-10 gradient-bg text-xs text-foreground cursor-pointer">
           {isLoading && <Bar barClassName="w-8 h-3 mx-auto" />}
           {!isLoading && "Claim Rewards"}
@@ -52,7 +52,7 @@ const StakingRewardTracker = ({ isLoading }: StakingRewardTrackerProps) => {
           Est. Monthly
         </div>
         <div className="w-full text-muted-foreground text-xs font-medium  text-end">
-          ~42.5 AETH
+          -- AETH
         </div>
       </div>
       <div className="flex justify-between w-full">
@@ -60,7 +60,7 @@ const StakingRewardTracker = ({ isLoading }: StakingRewardTrackerProps) => {
           Next Reward
         </div>
         <div className="w-full text-muted-foreground text-xs font-medium  text-end">
-          ~2 days
+          --
         </div>
       </div>
       <Divider />
