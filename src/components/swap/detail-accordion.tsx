@@ -13,6 +13,7 @@ interface DetailAccordionProps {
   isLoading?: boolean;
 }
 
+
 const DetailAccordion = ({
   title,
   icon,
